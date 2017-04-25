@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-
+from  library.views import Authentication
+from  library.views import Home
+from  library.views import Books
+from  library.views import Authors
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 ]
