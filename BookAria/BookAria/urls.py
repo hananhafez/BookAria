@@ -15,10 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from  mainApp.views import Authentication
-from  mainApp.views import Home
-from  mainApp.views import Books
-from  mainApp.views import Authors
+from django.conf.urls import include
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^bookstore/', include('mainApp.urls')),
+
 ]
