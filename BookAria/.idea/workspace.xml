@@ -15,11 +15,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BookAria/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="323">
+              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding>
                 <element signature="e#642#674#0" expanded="true" />
               </folding>
@@ -27,11 +27,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mainApp/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="252">
+              <caret line="14" column="49" lean-forward="false" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
               <folding>
                 <element signature="e#9#45#0" expanded="true" />
               </folding>
@@ -71,12 +71,12 @@
         <option value="$PROJECT_DIR$/mainApp/templates/library/header.html" />
         <option value="$PROJECT_DIR$/mainApp/templates/library/Home.html" />
         <option value="$PROJECT_DIR$/mainApp/templates/library/authors.html" />
-        <option value="$PROJECT_DIR$/BookAria/urls.py" />
         <option value="$PROJECT_DIR$/mainApp/views/Home.py" />
         <option value="$PROJECT_DIR$/mainApp/views.py" />
         <option value="$PROJECT_DIR$/mainApp/views/__init__.py" />
         <option value="$PROJECT_DIR$/mainApp/views/Authors.py" />
         <option value="$PROJECT_DIR$/mainApp/templates/header.html" />
+        <option value="$PROJECT_DIR$/BookAria/urls.py" />
         <option value="$PROJECT_DIR$/mainApp/urls.py" />
       </list>
     </option>
@@ -870,22 +870,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mainApp/urls.py">
+    <entry file="file://$PROJECT_DIR$/BookAria/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state relative-caret-position="323">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding>
-            <element signature="e#9#45#0" expanded="true" />
+            <element signature="e#642#674#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BookAria/urls.py">
+    <entry file="file://$PROJECT_DIR$/mainApp/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state relative-caret-position="252">
+          <caret line="14" column="49" lean-forward="false" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
           <folding>
-            <element signature="e#642#674#0" expanded="true" />
+            <element signature="e#9#45#0" expanded="true" />
           </folding>
         </state>
       </provider>

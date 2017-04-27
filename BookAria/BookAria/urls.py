@@ -15,6 +15,11 @@ Including another URLconf
 
 from django.conf.urls import url
 from django.contrib import admin
+# from  mainApp.views import Authentication
+# from  mainApp.views import Home
+# from  mainApp.views import Books
+# from  mainApp.views import Authors
+from  mainApp.Views import users
 from django.conf.urls import include
 
 
