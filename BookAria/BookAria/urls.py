@@ -1,5 +1,4 @@
 """BookAria URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.11/topics/http/urls/
 Examples:
@@ -13,13 +12,18 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+
 from django.conf.urls import url
 from django.contrib import admin
 from  mainApp.views import Authentication
 from  mainApp.views import Home
 from  mainApp.views import Books
 from  mainApp.views import Authors
+from  mainApp.views import users
+from django.conf.urls import include
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^bookstore/', include('mainApp.urls')),
     url(r'^Home/', Books.userBooks.as_view()),
 ]

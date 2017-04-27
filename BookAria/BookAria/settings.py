@@ -78,8 +78,10 @@ DATABASES = {
      'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'bookaria',
-        'USER':'hanan',
-        'PASSWORD':'os37',
+        'USER':'abdelrahman',
+        # 'USER':'hanan',
+         # 'PASSWORD':'os37',
+        'PASSWORD':'mypass',
         'HOST':'localhost'
     }
 
@@ -123,3 +125,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'mainApp/media/')
+MEDIA_URL = '/media/'
