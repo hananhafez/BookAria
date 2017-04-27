@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     <title>{% block title %}{% endblock %}</title>
-  <link rel="stylesheet" href="../../static/style.css">
+  <link rel="stylesheet" href="../static/style.css">
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -25,12 +25,11 @@
       </button>
       <a class="navbar-brand" href="#">BookAria</a>
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
+      <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="{% url 'home_page'  %}">Home <span class="sr-only">(current)</span></a></li>
-          <li><a href="{% url 'get_authors'  %}">Authors</a></li>
+        <li class="active"><a href=""> Home <span class="sr-only">(current)</span></a></li>
+          <li><a href="{% url "authors" %}">Authors</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -63,6 +62,9 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+{% block author_data %}
+{% endblock author_data %}
 
 </body>
 </html>
