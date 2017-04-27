@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import ListView,DetailView,UpdateView, CreateView
 from django.views import View
-from .models import 
+# from .models import 
 
 # class User():
 # 	def __init__(self):
@@ -20,10 +20,9 @@ from .models import
 		
 def signUp(request):
 	if request.method=='POST':
-
-	else
+		pass
+	else:
 		return render(request, 'library/user/signUp')
 
 	
-	pass	
 		

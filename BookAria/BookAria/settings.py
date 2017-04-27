@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'bookaria',
         'USER':'root',
         # 'USER':'hanan',
-        # 'PASSWORD':'os37',
+         # 'PASSWORD':'os37',
         'PASSWORD':'00000',
         'HOST':'localhost'
     }
