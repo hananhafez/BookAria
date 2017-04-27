@@ -19,6 +19,7 @@ from  mainApp.views import Authentication
 from  mainApp.views import Home
 from  mainApp.views import Books
 from  mainApp.views import Authors
+from  mainApp.views import Users
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 ]
