@@ -78,10 +78,10 @@ DATABASES = {
      'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'bookaria',
-        'USER':'root',
-        # 'USER':'hanan',
-         # 'PASSWORD':'os37',
-        'PASSWORD':'00000',
+        #'USER':'root',
+        'USER':'hanan',
+        'PASSWORD':'os37',
+        #'PASSWORD':'00000',
         'HOST':'localhost'
     }
 
