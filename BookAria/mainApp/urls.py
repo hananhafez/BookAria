@@ -9,6 +9,6 @@ from . import views
 urlpatterns = [
     url(r'^$', views.home_page , name='home_page'),
     url(r'^authors/$', views.get_authors , name='get_authors'),
-    url(r'^user/$', users.signUp , name='signUp'),
+    url(r'^signup/$', users.signUp , name='signUp'),
 
     ]
