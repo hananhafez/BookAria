@@ -1,8 +1,86 @@
 {% extends 'header.html' %}
 {% block block_content %}
-<p>home page</p>
-{% for book in user_books %}
-    <p>{{book.title}}</p>
-  {% endfor %}
+<!-- Content -->
+<div id="content">
+  <!-- currently reading books -->
+  <div class="products">
+    <h3>Currently Reading Books</h3>
+    <ul>
+      {% for book in user_books %}
+      {% if book.state.id == 3  %}
+      <li>
+        <div class="product">
+          <div class="info">
+            <span class="holder">
+              <img src="/media/{{ book.book_id.book_image }}" class="book_cover" alt="" />
+                <a href="/Book/{{ book.book_id.id }}"><span class="book-name">{{ book.book_id.title }}</span></a>
+                <a href="/Author/{{ book.book_id.author_id.id }}"><span class="author">{{ book.book_id.author_id }}</span></a>
+              <span class="publisher">published at: {{ book.book_id.published_at }}</span>
+            </span>
+          </div>
+          {% if book.rate == 0 %}
+          <div class="raty" style="cursor: pointer;" Bookid="{{ book.book_id.id }}">
+            <input name="Bookid" type="hidden" value="{{ book.book_id.id }}"/></div>
+         </div>
+         {% else %}
+         <div class="raty_read" style="cursor: pointer;">
+           <input name="score" class="score" type="hidden" value="{{ book.rate }}"/></div>
+        </div>
+        {% endif %}
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  <!-- currently reading books  End -->
+  </div>
 
+  <div class="cl">&nbsp;</div>
+  <!-- Wish to read Books -->
+  <div class="products">
+    <h3>Wish To Read</h3>
+    <ul>
+      {% for book in user_books %}
+      {% if book.state.id == 4  %}
+      <li>
+        <div class="product">
+          <div class="info">
+            <span class="holder">
+              <img src="/media/{{ book.book_id.book_image }}" class="book_cover" alt="" />
+                <a href="/Book/{{ book.book_id.id }}"><span class="book-name">{{ book.book_id.title }}</span></a>
+                <a href="/Author/{{ book.book_id.author_id.id }}"><span class="author">{{ book.book_id.author_id }}</span></a>
+              <span class="publisher">published at: {{ book.book_id.published_at }}</span>
+            </span>
+          </div>
+        </div>
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+  <!-- End wish to read books -->
+  <div class="cl">&nbsp;</div>
+  <!-- read Books -->
+  <div class="products">
+    <h3>Read Books</h3>
+    <ul>
+      {% for book in user_books %}
+      {% if book.state.id == 2  %}
+      <li>
+        <div class="product">
+          <div class="info">
+            <span class="holder">
+              <img src="/media/{{ book.book_id.book_image }}" class="book_cover" alt="" />
+                <a href="/Book/{{ book.book_id.id }}"><span class="book-name">{{ book.book_id.title }}</span></a>
+                <a href="/Author/{{ book.book_id.author_id.id }}"><span class="author">{{ book.book_id.author_id }}</span></a>
+              <span class="publisher">published at: {{ book.book_id.published_at }}</span>
+            </span>
+          </div>
+        </div>
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+  <!-- End read books -->
+</div>
 {% endblock block_content %}
