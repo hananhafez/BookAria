@@ -5,11 +5,18 @@
   <head>
     <meta charset="utf-8">
     <title>{% block title %}{% endblock %}</title>
+
   <link rel="stylesheet" href="../../static/style.css">
   <script src="../../static/main.js"></script>
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+  <link rel="stylesheet" href="../static/style.css">
+	<link rel="stylesheet" href="../static/style1.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/jquery.raty.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="../static/jquery.raty.js"></script>
 
   </head>
 
@@ -63,9 +70,32 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
+{% csrf_token %}
 {% block block_content %}
 {% endblock block_content %}
+<script type="text/javascript">
+  $('.raty').raty({
+  click: function(score, evt) {
+    $.ajax({
+      type:"POST",
+      beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+    },
+      url:"/BookRate/",
+      data: {'rate': score,'BookdID':7 },
+      success: function(){
+         console.log(updated)
+      }
+    });
+  }
+});
 
+$(".score").each(function(value){
+  $('.raty_read').raty({ readOnly: true, score: $(this).val() });
+});
+
+</script>
 </body>
 </html>

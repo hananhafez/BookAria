@@ -39,12 +39,12 @@ class Catergory (models.Model):
 
 
 class Favourites(models.Model):
-    user_id = models.ManyToManyField(User)
-    category_id = models.ManyToManyField('Catergory')
+    user_id = models.ForeignKey(User)
+    category_id = models.ForeignKey('Catergory')
 
 class User_Book(models.Model):
-    user_id = models.ManyToManyField(User)
-    book_id = models.ManyToManyField('Books')
+    user_id = models.ForeignKey(User)
+    book_id = models.ForeignKey('Books')
     state = models.ForeignKey('Book_State')
     rate = models.IntegerField()
 
@@ -56,5 +56,5 @@ class Book_State(models.Model):
 
 
 class Followed_Authors(models.Model):
-    user_id = models.ManyToManyField(User)
-    author_id = models.ManyToManyField('Authors')
+    user_id = models.ForeignKey(User)
+    author_id = models.ForeignKey('Authors')
