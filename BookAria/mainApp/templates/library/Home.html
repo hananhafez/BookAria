@@ -1,4 +1,8 @@
-{% extends 'library/header.html' %}
-
+{% extends 'header.html' %}
+{% block block_content %}
 <p>home page</p>
+{% for book in user_books %}
+    <p>{{book.title}}</p>
+  {% endfor %}
 
+{% endblock block_content %}

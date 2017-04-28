@@ -1,14 +1,16 @@
 # Django
 from django.conf.urls import include
 from django.conf.urls import url
-from  mainApp.Views import users
+from  mainApp.views import users
 # local Django
-from . import views
 
+from  mainApp.views.Authentication import *
+from  mainApp.views.Books import *
+from  mainApp.views.Home import *
+from  mainApp.views.Authors import *
 
-urlpatterns = [
-    url(r'^$', views.home_page , name='home_page'),
-    url(r'^authors/$', views.get_authors , name='get_authors'),
-    url(r'^signup/$', users.signUp , name='signUp'),
+urlpatterns =[
 
+    # url(r'$', users.signUp , name='signUp'),
+    url(r'^authors/$', authors , name='authors'),
     ]

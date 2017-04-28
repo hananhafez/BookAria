@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -79,8 +78,10 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'bookaria',
         'USER':'root',
+        # 'USER':'abdelrahman',
         # 'USER':'hanan',
          # 'PASSWORD':'os37',
+        # 'PASSWORD':'mypass',
         'PASSWORD':'00000',
         'HOST':'localhost'
     }
@@ -107,6 +108,12 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend', # default
+     # any other authentication backends
+)
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
@@ -125,3 +132,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'mainApp/media/')
+MEDIA_URL = '/media/'
