@@ -1,0 +1,47 @@
+* { margin: 0; padding: 0; outline: 0; }
+
+body {
+    font-size: 12px;
+    line-height: 18px;
+    font-family: arial, sans-serif;
+    color: #383838;
+    background: #3b3b3b url(images/body.png);
+}
+
+a { color: #0252aa; text-decoration: none; cursor: pointer; }
+a:hover { text-decoration: underline; }
+a
+
+h2 { font-family: 'Georgia', Arial, serif; font-style: italic; font-size: 65px; line-height: 70px; color: #fff; }
+h3 { font-family: 'Georgia', Arial, serif; font-style: italic; font-size: 22px; line-height: 24px; color: #0182b5; }
+h4 { font-family: 'Georgia', Arial, serif; font-style: italic; font-size: 16px; line-height: 17px; color: #0871b3; font-weight: normal; }
+
+input, textarea, select { font-size: 10px; font-family: arial, sans-serif; }
+textarea { overflow: auto; }
+
+.cl { display: block; height: 0; font-size: 0; line-height: 0; text-indent: -4000px; clear: both; }
+.notext { font-size: 0; line-height: 0; text-indent: -4000px; }
+.left, .alignleft { float: left; display: inline; }
+.right, .alignright { float: right; display: inline; }
+
+.shell { width: 884px; margin: 0 auto; background: url(images/shell.png) repeat-y 0 0; padding: 0 57px 0 57px; position: relative; }
+
+#header { padding-top: 30px; }
+
+#main { padding-top: 51px; padding-bottom: 41px; z-index: 1; }
+
+#content { float: left; display: inline; width: 635px; }
+#content h3 { padding: 0 0 7px 3px; border-bottom: solid 4px #eaeaea; margin-bottom: 12px; }
+
+.products ul { list-style: none; position: relative; width: 660px; margin-left: -7px; width: 660px; }
+.products ul li { float: left; display: inline; width: 150px; height: 343px; margin: 0 15px 14px 0; }
+.products ul li a.info { display: block; padding: 7px; width: 136px; height: 329px; }
+.products ul li a.info:hover { background: url(../static/product-hover.png) no-repeat 0 0; text-decoration: none; }
+.products ul li a.info .holder { padding: 14px 9px; border: solid 1px #dcdcdc; display: block; }
+.products .product { width: 134px; position: relative; }
+.products .book_cover { padding: 0 7px 4px; width: 102px; height: 160px; }
+.product .buy-btn { position: absolute; bottom: 8px; left: 7px; repeat-x 0 0; width: 126px; height: 31px; color: black; font-size: 12px; line-height: 31px; text-transform: uppercase; font-weight: bold; z-index: 10; padding-left: 10px; white-space: nowrap;}
+.product .buy-btn:hover { text-decoration: none; }
+
+.product .book-name { font-size: 12px; line-height: 20px; color: #0182b5; font-family: 'Georgia', Arial, serif; display: block; }
+.product .author .publisher { font-size: 11px; line-height: 14px; color: #3d3d3d; font-family: 'Georgia', Arial, serif; padding: 0 0 9px 1px; display: block; }
