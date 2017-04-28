@@ -49,12 +49,10 @@ class User_Book(models.Model):
     rate = models.IntegerField()
 
 class Book_State(models.Model):
-    states = (
-        ('read', 'Read'),
-        ('currently_read', 'Currently_Read'),
-        ('wish', 'Wish'),
-    )
-    state_value = models.Field(choices=states , max_length=1)
+    state_value = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.state_value
 
 
 class Followed_Authors(models.Model):
