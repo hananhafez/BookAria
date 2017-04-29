@@ -18,6 +18,20 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="../static/jquery.raty.js"></script>
 
+  <script>
+      $(function () {
+          $.ajaxSetup({
+              data: {csrfmiddlewaretoken: '{{ csrf_token }}'},
+          });
+          $.ajax({
+            url: "localhost:8000/Category",
+            success: function (data) {
+              console.log(data)
+          }
+        });
+      });
+  </script>
+
   </head>
 
 <body>
