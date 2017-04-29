@@ -38,21 +38,16 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="/Home"> Home <span class="sr-only">(current)</span></a></li>
           <li><a href="{% url "authors" %}">Authors</a></li>
-        <li class="dropdown">
+
+               <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">FANTASY</a></li>
-            <li><a href="#">HISTORY & BIOGRAPHY</a></li>
-            <li><a href="#">FICTION</a></li>
-              <li><a href="#">Classics</a></li>
-            <li><a href="#">Romance</a></li>
-            <li><a href="#">Horror</a></li>
-              <li><a href="#">Crime</a></li>
-            <li><a href="#">Humor & Comedy</a></li>
-            <li><a href="#">Science</a></li>
-              <li><a href="#">Philosophy</a></li>
+              {% for cat in catergory %}
+              <li><a href="/category/{{ cat.id }}">{{ cat.name }}</a></li>
+              {% endfor %}
           </ul>
         </li>
+
       </ul>
       <form class="navbar-form navbar-left" >
         <div class="form-group">

@@ -2,30 +2,6 @@
 {% block head_title %}Authors{% endblock head_title %}
 
 {% block block_content %}
-{#    <div class="col-sm-10">#}
-{#            <div class="row">#}
-{#            {% if empty %}#}
-{#                <div><h1>No Authors</h1></div>#}
-{#            {% else %}#}
-{#                <div><h1>Authors</h1></div>#}
-{#                {% for obj in authors %}#}
-{#                    <div class="col-sm-12">#}
-{#                        <div class="thumbnail">#}
-{#                            <div class="caption">#}
-{#                                <h3>{{ obj.name }}</h3>#}
-{#                                <small>#}
-{#                                    {{ obj.date_of_birth }},#}
-{#                                    {{ obj.info }}<br>#}
-{#                                    {{ obj.author_image }}#}
-{#                                </small><br>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                {% endfor %}#}
-{#            {% endif %}#}
-{#        </div>#}
-{#    </div>#}
-
      {% for obj in authors %}
 <div class="container">
     <div class="row">
@@ -36,10 +12,11 @@
                          <img src="/media/{{ obj.author_image }}" height="250px" , width="355px"/>
                         <div class="content">
                             <div class="main">
-                                <h3 class="name">{{ obj.name  }}</h3>
-                                <p class="profession">Product Manager</p>
-
-                                <p class="text-center">"I'm the new Sinatra, and since I made it here I can make it anywhere, yeah, they love me everywhere"</p>
+                                <h3 class="name"><a href="/DisplayAuthor/{{ obj.id  }}" >{{ obj.name  }}</a><br>
+                                <button type="button" class="btn btn-primary">Follow</button>
+                                </h3>
+                                <p class="profession">{{ obj.date_of_birth }}</p>
+                                <p class="text-center">{{ obj.info|truncatewords:10 }}</p>
                             </div>
                             <div class="footer">
                                 <div class="rating">
@@ -48,46 +25,7 @@
                             </div>
                         </div>
                     </div> <!-- end front panel -->
-                    <div class="back">
-                        <div class="header">
-                            <h5 class="motto">"To be or not to be, this is my awesome motto!"</h5>
-                        </div>
-                        <div class="content">
-                            <div class="main">
-                                <h4 class="text-center">Job Description</h4>
-                                <p class="text-center">Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others...</p>
 
-                                <div class="stats-container">
-                                    <div class="stats">
-                                        <h4>235</h4>
-                                        <p>
-                                            Followers
-                                        </p>
-                                    </div>
-                                    <div class="stats">
-                                        <h4>114</h4>
-                                        <p>
-                                            Following
-                                        </p>
-                                    </div>
-                                    <div class="stats">
-                                        <h4>35</h4>
-                                        <p>
-                                            Projects
-                                        </p>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="footer">
-                            <div class="social-links text-center">
-                                <a href="http://deepak646.blogspot.in/" class="facebook"><i class="fa fa-facebook fa-fw"></i></a>
-                                <a href="http://deepak646.blogspot.in/" class="google"><i class="fa fa-google-plus fa-fw"></i></a>
-                                <a href="http://deepak646.blogspot.in/" class="twitter"><i class="fa fa-twitter fa-fw"></i></a>
-                            </div>
-                        </div>
-                    </div> <!-- end back panel -->
                 </div> <!-- end card -->
             </div> <!-- end card-container -->
         </div> <!-- end col-sm-3 -->

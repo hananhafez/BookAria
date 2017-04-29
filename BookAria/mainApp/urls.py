@@ -6,12 +6,13 @@ from  mainApp.views import users
 
 from  mainApp.views.Home import *
 from  mainApp.views.Authors import *
+from  mainApp.views.category import *
 
 urlpatterns =[
 
     # url(r'$', users.signUp , name='signUp'),
     url(r'^authors/$', authors , name='authors'),
-
+    url(r'^category/$', category , name='category'),
     url(r'^user/$', users.signUp , name='signUp'),
 
     ]
