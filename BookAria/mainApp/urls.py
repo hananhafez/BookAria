@@ -12,7 +12,8 @@ urlpatterns =[
 
     # url(r'$', users.signUp , name='signUp'),
     url(r'^authors/$', authors , name='authors'),
-    url(r'^category/$', category , name='category'),
+    url(r'^category/(?P<cat_id>[0-9]+)', category , name='category'),
+    url(r'^Category/', category , name='category'),
     url(r'^user/$', users.signUp , name='signUp'),
 
     ]

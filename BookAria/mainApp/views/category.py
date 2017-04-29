@@ -5,9 +5,9 @@ from mainApp.models import Books
 from mainApp.models import Catergory
 
 def category(request):
-    params = {}
-    params['category'] = Catergory.objects.all()
-    return render(request, template_name='library/categories.html', context=params)
+    cat = Catergory.objects.all()
+    print("cats", cat)
+    return render(request, template_name='library/header.html', context={"category":cat})
 
 
 def category_books(request, cat_id):
