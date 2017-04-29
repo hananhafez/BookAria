@@ -1,5 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.shortcuts import redirect
+from django.db.models import Sum
 from django.views.generic import ListView
 from django.views.decorators.csrf import csrf_protect
 from mainApp.models import Books
@@ -15,19 +17,18 @@ class userBooks(ListView):
     queryset = User_Book.objects.filter(user_id=1)
     template_name = '../templates/library/Home.html'
 
-@csrf_protect
-def updateRate(request):
-    userBook = User_Book.objects.filter(book_id=request.POST.get('BookdID'))
-    userBook.rate = request.POST.get('rate')
-    userBook.save()
-    Book = Books.objects.get(id=request.POST.get('BookdID'))
+def updateRate(request,book_id,score):
+    User_Book.objects.filter(book_id=book_id).update(rate = score)
+    Book = Books.objects.get(id=book_id)
     accumilativeRate = getattr(Book, 'acc_rate')
     if accumilativeRate == 0 :
-        Book.acc_rate = request.POST.get('score')
+        Book.acc_rate = score
         Book.save()
     else:
-        sumRates = User_Book.objects.filter(book_id=request.POST.get('BookdID')).aggregate(Sum('rate'))
-        newAccRate = int(round(sumRates/5))
+        sumRates = User_Book.objects.filter(book_id=book_id).aggregate(Sum('rate'))
+        print("summtion*************")
+        print(sumRates['rate__sum'])
+        newAccRate = int(round(sumRates['rate__sum']/5))
         Book.acc_rate = newAccRate
         Book.save()
-    return redirect(requst.META['HTTP_REFERER'])
+    return redirect(request.META['HTTP_REFERER'])

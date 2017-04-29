@@ -4,14 +4,14 @@ from django.conf.urls import url
 from  mainApp.views import users
 # local Django
 
-from  mainApp.views.Authentication import *
 from  mainApp.views.Home import *
 from  mainApp.views.Authors import *
 
-
 urlpatterns =[
 
+    # url(r'$', users.signUp , name='signUp'),
     url(r'^authors/$', authors , name='authors'),
-    # url(r'^user/$', users.signUp , name='signUp'),
+
+    url(r'^user/$', users.signUp , name='signUp'),
 
     ]

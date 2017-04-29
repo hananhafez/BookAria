@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -79,12 +78,14 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'bookaria',
         #'USER':'root',
+
         'USER':'hanan',
         'PASSWORD':'os37',
         #'PASSWORD':'00000',
 
         # 'USER':'abdelrahman',
         # 'PASSWORD':'mypass',
+
         'HOST':'localhost'
     }
 
@@ -108,6 +109,12 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend', # default
+     # any other authentication backends
+)
 
 
 # Internationalization
