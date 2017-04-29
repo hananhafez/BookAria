@@ -33,8 +33,7 @@
             <div class="card-container">
                 <div class="card">
                     <div class="front">
-                        {% load static %}
-                         <img src="{% static "mainApp/{{ obj.author_image }}" %}"/>
+                         <img src="/media/{{ obj.author_image }}" height="250px" , width="355px"/>
                         <div class="content">
                             <div class="main">
                                 <h3 class="name">{{ obj.name  }}</h3>
@@ -44,7 +43,7 @@
                             </div>
                             <div class="footer">
                                 <div class="rating">
-                                    <i class="fa fa-mail-forward"></i> Auto Rotation
+                                    <i class="fa fa-mail-forward"></i>
                                 </div>
                             </div>
                         </div>

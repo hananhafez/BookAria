@@ -19,13 +19,13 @@ body {
         margin-bottom: 30px;
 }
 /* flip the pane when hovered */
-.card-container:not(.manual-flip):hover .card,
-.card-container.hover.manual-flip .card{
-	-webkit-transform: rotateY( 180deg );
--moz-transform: rotateY( 180deg );
- -o-transform: rotateY( 180deg );
-    transform: rotateY( 180deg );
-}
+/*.card-container:not(.manual-flip):hover .card,*/
+/*.card-container.hover.manual-flip .card{*/
+	/*-webkit-transform: rotateY( 180deg );*/
+/*-moz-transform: rotateY( 180deg );*/
+ /*-o-transform: rotateY( 180deg );*/
+    /*transform: rotateY( 180deg );*/
+/*}*/
 
 
 .card-container.static:hover .card,
@@ -67,13 +67,13 @@ body {
 }
 
 /* back, initially hidden pane */
-.back {
-		-webkit-transform: rotateY( 180deg );
-   -moz-transform: rotateY( 180deg );
-     -o-transform: rotateY( 180deg );
-        transform: rotateY( 180deg );
-        z-index: 3;
-}
+/*.back {*/
+		/*-webkit-transform: rotateY( 180deg );*/
+   /*-moz-transform: rotateY( 180deg );*/
+     /*-o-transform: rotateY( 180deg );*/
+        /*transform: rotateY( 180deg );*/
+        /*z-index: 3;*/
+/*}*/
 
 .back .btn-simple{
     position: absolute;
