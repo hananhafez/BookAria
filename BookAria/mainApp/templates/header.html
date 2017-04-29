@@ -25,12 +25,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">BookAria</a>
+      <a class="navbar-brand" href="#">BookArea</a>
     </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href=""> Home <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="/Home"> Home <span class="sr-only">(current)</span></a></li>
           <li><a href="{% url "authors" %}">Authors</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
@@ -52,13 +52,11 @@
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
       </form>
 
         <ul class="nav navbar-nav navbar-right">
-        <a href="#" class="btn btn-primary btn-lg active " role="button" aria-disabled="true">Login</a> |
-       <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-disabled="true">SignUp</a>
-
+        <a href="#" class="btn btn-primary btn-lg active " role="button" aria-disabled="true">Logout</a> |
       </ul>
 
     </div><!-- /.navbar-collapse -->
@@ -70,19 +68,7 @@
 <script type="text/javascript">
   $('.raty').raty({
   click: function(score, evt) {
-    $.ajax({
-      type:"POST",
-      beforeSend: function(xhr, settings) {
-        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-            xhr.setRequestHeader("X-CSRFToken", csrftoken);
-        }
-    },
-      url:"/BookRate/",
-      data: {'rate': score,'BookdID':7 },
-      success: function(){
-         console.log(updated)
-      }
-    });
+     window.location.href='/BookRate/7/'+score;
   }
 });
 
