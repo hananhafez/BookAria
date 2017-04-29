@@ -56,15 +56,27 @@
       </form>
 
         <ul class="nav navbar-nav navbar-right">
+
         <a href="#" class="btn btn-primary btn-lg active " role="button" aria-disabled="true">Logout</a> |
+        {% if user.is_authenticated %}
+        <a href="{% url 'signOut' %}" class="btn btn-primary btn-lg active " role="button" aria-disabled="true">LogOut</a>
+        {% else %}
+        <a href="{% url 'signIn' %}" class="btn btn-primary btn-lg active " role="button" aria-disabled="true">Login</a>
+        {% endif %}
+
+       <a href="{% url 'signUp' %}" class="btn btn-secondary btn-lg active" role="button" aria-disabled="true">SignUp</a>
+
       </ul>
 
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+<div class="container-fluid">
 {% csrf_token %}
 {% block block_content %}
 {% endblock block_content %}
+</div>
 <script type="text/javascript">
   $('.raty').raty({
   click: function(score, evt) {

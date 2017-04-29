@@ -1,1 +1,52 @@
-{% extends 'library/header.html' %}
+{% extends '../../header.html' %}
+      {% block block_content %}
+      {% if errors %}
+            <ul style="color: red">
+            {% for error in errors %}
+                  <li>{{error}}</li>
+            {%endfor%}
+            </ul>
+	{% endif %}
+      <form action="{% url 'signUp' %}" method="post">
+       {% csrf_token %}
+      <div class="form-group row">
+      		<label for="inputEmail3" class="col-sm-2 form-control-label">First Name</label>
+      		<div class="col-sm-10">
+      			<input type="text" name="firstname" class="form-control" id="inputEmail3" placeholder="Frist Name">
+      		</div>
+      	</div>
+      	
+      	<div class="form-group row">
+      		<label for="inputEmail3" class="col-sm-2 form-control-label">Last Name</label>
+      		<div class="col-sm-10">
+      			<input type="text" name="lastname" class="form-control" id="inputEmail3" placeholder="Last Name">
+      		</div>
+      	</div>
+
+      	<div class="form-group row">
+      		<label for="inputEmail3" class="col-sm-2 form-control-label">User Name</label>
+      		<div class="col-sm-10">
+      			<input type="text" name="username" class="form-control" id="inputEmail3" placeholder="User Name">
+      		</div>
+      	</div>
+      	
+      	<div class="form-group row">
+      		<label for="inputEmail3" class="col-sm-2 form-control-label">Email</label>
+      		<div class="col-sm-10">
+      			<input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email">
+      		</div>
+      	</div>
+      	<div class="form-group row">
+      		<label for="inputPassword3" class="col-sm-2 form-control-label">Password</label>
+      		<div class="col-sm-10">
+      			<input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password">
+      		</div>
+      	</div>
+      	<div class="form-group row">
+      		<div class="col-sm-offset-2 col-sm-10">
+      			<button type="submit" class="btn btn-secondary">Sign Up</button>
+      		</div>
+      	</div>
+      </form>
+
+{% endblock block_content %}

@@ -8,10 +8,8 @@ from  mainApp.views.Authentication import *
 from  mainApp.views.Home import *
 from  mainApp.views.Authors import *
 
-
 urlpatterns =[
 
+    # url(r'$', users.signUp , name='signUp'),
     url(r'^authors/$', authors , name='authors'),
-    url(r'^user/$', users.signUp , name='signUp'),
-
     ]
