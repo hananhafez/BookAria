@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.views.decorators.csrf import csrf_protect
@@ -8,6 +9,8 @@ from mainApp.models import User_Book
 from mainApp.models import Authors
 from django.contrib.auth.models import User
 # Create your views here.
+
+@login_required(login_url='/signin/')
 def DisplayBook(request,book_id):
     book = Books.objects.get(id=book_id)
     states = Book_State.objects.all()
@@ -15,6 +18,7 @@ def DisplayBook(request,book_id):
     print(userBook.state)
     return render(request,'../templates/library/DisplayBook.html',context={"Book":book,"states":states,"Bookstate":userBook.state})
 
+@login_required(login_url='/signin/')
 def updateState(request,book_id,state_id):
     userbook = User_Book.objects.get(user_id=1,book_id=book_id)
     stateid = int(state_id)
@@ -24,6 +28,7 @@ def updateState(request,book_id,state_id):
     userbook.save()
     return redirect(request.META['HTTP_REFERER'])
 
+@login_required(login_url='/signin/')
 def DisplayAuthor(request,author_id):
     author = Authors.objects.get(id=author_id)
     return render(request,'../templates/library/DisplayAuthor.html',context={"Author":author})
