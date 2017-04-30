@@ -1,57 +1,75 @@
 {% extends 'header.html' %}
+{% block head_title %}Authors{% endblock head_title %}
 {%block title %}Books{% endblock %}
 
 {%block block_content %}
       {% if search_type == 'book' %}
 
-        {% for book in user_books %}
-{#        <div class="row">#}
-{#          <div class="panel panel-default">#}
-{#            <div class="panel-heading">#}
-{#              {{ book.title }}#}
-{#              <a href="/app/categories/{{ book.category.id }}"><span class=" pull-right">{{ book.category }}</span></a>#}
-{#            </div>#}
-{#            <div class="panel-body"><img class="img-thumbnail" src="{{ book.image.url| slice:'6:' }}" alt="book_image"> </div>#}
-{#            <div class="panel-footer"><a href="/app/books/{{book.id}}" class="btn btn-xs btn-primary">Read More..</a></div>#}
-{#          </div>#}
-{#        </div>#}
+        {% for Book in books %}
+            <div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<div class="panel panel-default  panel--styled">
+					<div class="panel-body">
+						<div class="col-md-12 panelTop">
+							<div class="col-md-4">
+								<img class="img-responsive" src="/media/{{ Book.book_image }}" alt=""/>
+							</div>
+							<div class="col-md-8">
+								<h2>{{ Book.title }}</h2>
+								<a href="/DisplayAuthor/{{ Book.author_id.id }}"><h3> by {{ Book.author_id }}</h3></a>
+								<h4 style="display:inline">Published At : </h4><h7>{{ Book.published_at }}</h7>
+								<br>
+								<h4 style="display:inline">ISBN : </h4><h7>{{ Book.ISBN }}</h7>
+								<div class="raty_read" style="cursor: pointer;">
+			            <input name="score" class="score" type="hidden" value="{{ Book.acc_rate }}"/>
+								</div>
+								<p>{{ Book.summary }}</p>
+			         </div>
+							</div>
+						</div>
+
+
+				</div>
+			</div>
+		</div>
+    </div>
             <li>
-        <div class="product">
-          <div class="info">
-            <span class="holder">
-              <img src="/media/{{ book.book_id.book_image }}" class="book_cover" alt="" />
-                <a href="/DisplayBook/{{ book.book_id.id }}"><span class="book-name">{{ book.book_id.title }}</span></a>
-                <a href="/DisplayAuthor/{{ book.book_id.author_id.id }}"><span class="author">by {{ book.book_id.author_id }}</span></a><br>
-              <span class="publisher">published at: {{ book.book_id.published_at }}</span>
-               <p>{{ book.title }}</p>
-            </span>
-          </div>
-        </div>
+
       </li>
         {% empty %}
           <h1>Sorry, no books matched your search criteria! </h1>
         {% endfor %}
       {% elif search_type == 'author' %}
-
-        {% for author in authors %}
-          		<div class="col-md-12 panelTop">
+        {% for Author in authors %}
+          	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<div class="panel panel-default  panel--styled">
+					<div class="panel-body">
+						<div class="col-md-12 panelTop">
 							<div class="col-md-4">
-								<img class="img-responsive" src="/media/{{ author.author_image }}" alt=""/>
+								<img class="img-responsive" src="/media/{{ Author.author_image }}" alt=""/>
 							</div>
 							<div class="col-md-8">
-								<h2>{{ author.name }}</h2>
-								<h4 style="display:inline">BirthDate : </h4><h7>{{ author.date_of_birth }}</h7>
-								<p>{{ author.info }}</p>
+								<h2>{{ Author.name }}</h2>
+								<h4 style="display:inline">BirthDate : </h4><h7>{{ Author.date_of_birth }}</h7>
+								<p>{{ Author.info }}</p>
 							</div>
 						</div>
-{#              {% if author in my_authors %}#}
-{#                <div class="panel-footer"><a href="/app/authors/{{author.id}}/unsubscribe" class="btn btn-xs btn-primary unsubscribed">Unsubscribe</a></div>#}
-{#              {% endif %}#}
-{#              {% if author not in my_authors %}#}
-{#                <div class="panel-footer"><a href="/app/authors/{{author.id}}/subscribe" class="btn btn-xs btn-primary subscribed">Subscribe</a></div>#}
-{#              {% endif %}#}
-            </div>
-          </div>
+
+						<div class="col-md-12 panelBottom">
+							<div class="col-md-4 text-center">
+								 <button type="button" class="btn btn-primary">Follow</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+
+
         {% empty %}
           <h1>Sorry, No authors matched your search criteria! </h1>
         {% endfor %}
