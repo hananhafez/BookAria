@@ -9,32 +9,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <link rel="stylesheet" href="../../static/style.css">
   <script src="../../static/main.js"></script>
-
-
   <link rel="stylesheet" href="../static/style.css">
   <link rel="stylesheet" href="../static/style1.css" type="text/css" media="all" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="../static/jquery.raty.css">
-
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="../static/jquery.raty.js"></script>
-
-  <script>
-      $(function () {
-          $.ajaxSetup({
-              data: {csrfmiddlewaretoken: '{{ csrf_token }}'},
-          });
-          $.ajax({
-            url: "localhost:8000/Category",
-            success: function (data) {
-              console.log(data)
-          }
-        });
-      });
-  </script>
-
   </head>
-
 <body>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -46,22 +27,20 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">BookArea</a>
+      <a class="navbar-brand" href="/Home">BookArea</a>
     </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+     {% if user.is_authenticated %}
       <ul class="nav navbar-nav">
         <li class="active"><a href="/Home"> Home <span class="sr-only">(current)</span></a></li>
           <li><a href="{% url 'authors' %}">Authors</a></li>
-
                <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
           <ul class="dropdown-menu" id="cats">
           </ul>
         </li>
-
       </ul>
-
      <ul class="navbar-form navbar-left" >
             <select class='form-control' name="search_by" id="search_by">
               <option value="book">Book</option>
@@ -74,18 +53,13 @@
               </span>
             </div><!-- /input-group -->
           </ul>
-
         <ul class="nav navbar-nav navbar-right">
-        <a href="#" class="btn btn-primary btn-lg active " role="button" aria-disabled="true">Logout</a> |
-        {% if user.is_authenticated %}
         <a href="{% url 'signOut' %}" class="btn btn-primary btn-lg active " role="button" aria-disabled="true">LogOut</a>
-        {% endif %}
       </ul>
-
     </div><!-- /.navbar-collapse -->
+   {% endif %}
   </div><!-- /.container-fluid -->
 </nav>
-
 <div class="container-fluid">
 {% csrf_token %}
 {% block block_content %}
@@ -164,9 +138,6 @@ console.log(csrftoken)
       .fail(function(response) {
         console.log("error");
       });
-      
-
-
 </script>
 </body>
 </html>

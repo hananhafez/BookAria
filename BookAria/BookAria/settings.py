@@ -47,6 +47,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'BookAria.urls'
@@ -77,15 +78,12 @@ DATABASES = {
      'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'bookaria',
-         'USER':'root',
-
+        'USER':'root',
         #'USER':'hanan',
         #'PASSWORD':'os37',
          'PASSWORD':'00000',
-
         # 'USER':'abdelrahman',
         # 'PASSWORD':'mypass',
-
         'HOST':'localhost'
     }
 
