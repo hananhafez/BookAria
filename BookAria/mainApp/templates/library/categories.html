@@ -1,35 +1,57 @@
 {% extends 'header.html' %}
 {% block block_content %}
-   <div style="float: right ; margin-right: 50px" >  <button type="button" class="btn btn-primary">{{ cat_name }}</button></div>
- {% for book in books %}
-<div class="container" style=" margin-left: 2px">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
-            <div class="card-container">
-                <div class="card">
-                    <div class="front">
-                        <div style="text-align: center"> <img src="/media/{{ book.book_image }}" height="250px" , width="500px"/></div>
-                        <div class="content">
-                            <div class="main">
-{#                                <h3 class="name"><a href="/DisplayAuthor/{{ obj.id  }}" >{{ obj.name  }}</a><br>#}
-                                </h3>
-                                <p>{{ book.title }}</p>
-                                <p class="profession">{{ book.published_at }}</p>
-                                <p class="text-center">{{ book.summary }}</p>
-                            </div>
-                            <div class="footer">
-                                <div class="rating">
-                                    <i class="fa fa-mail-forward"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- end front panel -->
-                </div> <!-- end card -->
-            </div> <!-- end card-container -->
-        </div> <!-- end col-sm-3 -->
-        </div> <!-- end col-sm-10 -->
-    </div> <!-- end row -->
+   <div style="float: right ; margin-right: 50px" >  <button type="button" class="btn btn-primary">Add To Favourite</button></div>
+<!-- read Books -->
+     <div class="cl">&nbsp;</div>
+  <div class="products">
+    <h3>Read Books</h3>
+    <ul>
+      {% for book in books %}
+      <li>
+        <div class="product">
+          <div class="info">
+            <span class="holder">
+              <img src="/media/{{ book.book_image }}" class="book_cover" alt="" />
+                <a href="/DisplayBook/{{ book.id }}"><span class="book-name">{{ book.title }}</span></a>
+                <a href="/DisplayAuthor/{{ book.author_id.id }}"><span class="author">by {{ book.author_id }}</span></a><br>
+              <span class="publisher">published at: {{ book.published_at }}</span>
+            </span>
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <!-- End read books -->
 </div>
-{% endfor %}
+
+{#<div class="container" style=" margin-left: 2px">#}
+{#    <div class="row">#}
+{#        <div class="col-lg-8 col-lg-offset-2">#}
+{#            <div class="card-container">#}
+{#                <div class="card">#}
+{#                    <div class="front">#}
+{#                        <div style="text-align: center"> <img src="/media/{{ book.book_image }}" height="250px" , width="500px"/></div>#}
+{#                        <div class="content">#}
+{#                            <div class="main">#}
+{#                                <h3 class="name"><a href="/DisplayAuthor/{{ obj.id  }}" >{{ obj.name  }}</a><br>#}
+{#                                </h3>#}
+{#                                <p>{{ book.title }}</p>#}
+{#                                <p class="profession">{{ book.published_at }}</p>#}
+{#                                <p class="text-center">{{ book.summary }}</p>#}
+{#                            </div>#}
+{#                            <div class="footer">#}
+{#                                <div class="rating">#}
+{#                                    <i class="fa fa-mail-forward"></i>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div> <!-- end front panel -->#}
+{#                </div> <!-- end card -->#}
+{#            </div> <!-- end card-container -->#}
+{#        </div> <!-- end col-sm-3 -->#}
+{#        </div> <!-- end col-sm-10 -->#}
+{#    </div> <!-- end row -->#}
+{#</div>#}
 {% endblock block_content %}
 
