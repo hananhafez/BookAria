@@ -11,6 +11,7 @@ from django.core.serializers.json import DjangoJSONEncoder
 @login_required(login_url='/signin/')
 def list(request):
     cat = Catergory.objects.all()
+    print("categories" , cat)
     cats=[]
     for obj in cat:
     	cats.append(obj.as_dict())
@@ -18,7 +19,10 @@ def list(request):
 
 @login_required(login_url='/signin/')
 def category_books(request, cat_id):
-    params ={}
+
     cat = Catergory.objects.filter(id=cat_id)
-    return HttpResponse(cat)
-    # return render(request, template_name='library/header.html', context={"category":cat})
+    print("categories", cat_id)
+    # return HttpResponse(cat)
+    # return render(res, template_name='library/categories.html' )
+    cat_books = Books.objects.filter(category_id=cat_id)
+    return render(request, 'library/categories.html', {"books":cat_books})

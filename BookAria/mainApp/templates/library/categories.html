@@ -1,5 +1,4 @@
-{% extends 'library/../header.html' %}
-
+{% extends 'header.html' %}
 {% block block_content %}
 <div class="container">
 		<div class="row">
@@ -10,8 +9,8 @@
 							<div class="col-md-4">
 							</div>
 							<div class="col-md-8">
-                                 {% for cat in category %}
-								<p>{{ cat.name }}</p>
+                                 {% for book in books %}
+								<p>{{ book.title }}</p>
                                {% endfor %}
 							</div>
 						</div>

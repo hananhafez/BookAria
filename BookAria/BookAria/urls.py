@@ -32,6 +32,12 @@ urlpatterns = [
     url(r'^$', users.signIn),
     url(r'^admin/', admin.site.urls),
     url(r'^bookstore/', include('mainApp.urls')),
+
+
+    # url(r'^Home/', Books.userBooks.as_view()),
+
+    # url(r'^Home/', Books.userBooks.as_view()),
+
     url(r'^signin/$', users.signIn , name='signIn'),
     url(r'^user/$', users.signUp , name='signUp'),
     url(r'^signout/$', users.signOut , name='signOut'),
