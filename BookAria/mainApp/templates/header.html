@@ -67,15 +67,21 @@
 </div>
 
 <script type="text/javascript">
-  $('.raty').raty({
-  click: function(score, evt) {
-     window.location.href='/BookRate/7/'+score;
-  }
+
+  $('.raty').each(function(elem){
+      $(this).raty({
+        click: function(score) {
+          window.location.href='/BookRate/'+$(this).attr('id')+'/'+score;
+          var url = '/BookRate/'+$(this).attr('id')+'/'+score;
+          console.log(url)
+        }
+      });
+  });
+
+$('.raty_read').each(function(elem){
+  $(this).raty({ readOnly: true, score: $(this).find('input').first().val()});
 });
 
-$(".score").each(function(value){
-  $('.raty_read').raty({ readOnly: true, score: $(this).val() });
-});
 </script>
 
 <script type="text/javascript">
