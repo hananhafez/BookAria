@@ -5,7 +5,6 @@ from django.views.generic import ListView, DetailView
 # Create your views here.
 
 
-
 def book_search(request, query):
     books = Books.objects.filter(title__icontains=query)
     print ("books:" , books)

@@ -1,9 +1,9 @@
 {% extends 'header.html' %}
 {%block title %}Books{% endblock %}
 
-{%block content %}
+{%block block_content %}
       {% if search_type == 'book' %}
-           <p>book data</p>
+
         {% for book in user_books %}
 {#        <div class="row">#}
 {#          <div class="panel panel-default">#}
@@ -32,7 +32,7 @@
           <h1>Sorry, no books matched your search criteria! </h1>
         {% endfor %}
       {% elif search_type == 'author' %}
-          <p>author data </p>
+
         {% for author in authors %}
           		<div class="col-md-12 panelTop">
 							<div class="col-md-4">
@@ -57,4 +57,4 @@
         {% endfor %}
       {% endif %}
 
-{% endblock %}
+{% endblock block_content %}
