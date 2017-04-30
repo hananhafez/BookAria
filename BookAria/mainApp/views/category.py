@@ -19,7 +19,9 @@ def list(request):
 
 @login_required(login_url='/signin/')
 def category_books(request, cat_id):
-    params ={}
     cat = Catergory.objects.filter(id=cat_id)
+    print("categories", cat_id)
     return HttpResponse(cat)
-    # return render(request, template_name='library/header.html', context={"category":cat})
+    # return render(res, template_name='library/categories.html' )
+
+
