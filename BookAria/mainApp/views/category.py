@@ -9,6 +9,7 @@ from django.core.serializers.json import DjangoJSONEncoder
 
 def list(request):
     cat = Catergory.objects.all()
+    print("categories" , cat)
     cats=[]
     for obj in cat:
     	cats.append(obj.as_dict())

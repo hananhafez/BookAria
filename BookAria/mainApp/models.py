@@ -3,7 +3,6 @@ from __future__ import unicode_literals
 from django.db import models
 from django.contrib.auth.models import User
 
-
 # Create your models here.
 
 class Authors(models.Model):
@@ -55,12 +54,12 @@ class Favourites(models.Model):
     user_id = models.ForeignKey(User)
     category_id = models.ForeignKey('Catergory')
 
+
 class User_Book(models.Model):
     user_id = models.ForeignKey(User)
     book_id = models.ForeignKey('Books')
     state = models.ForeignKey('Book_State')
     rate = models.IntegerField()
-
 
 
 class Book_State(models.Model):

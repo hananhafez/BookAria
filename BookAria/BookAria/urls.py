@@ -32,9 +32,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^bookstore/', include('mainApp.urls')),
 
-
     # url(r'^Home/', Books.userBooks.as_view()),
-
 
     # url(r'^Home/', Books.userBooks.as_view()),
     url(r'^signin/$', users.signIn , name='signIn'),
