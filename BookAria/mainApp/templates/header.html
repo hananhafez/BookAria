@@ -5,13 +5,34 @@
   <head>
     <meta charset="utf-8">
     <title>{% block title %}{% endblock %}</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="../../static/style.css">
+  <script src="../../static/main.js"></script>
+
+
   <link rel="stylesheet" href="../static/style.css">
-	<link rel="stylesheet" href="../static/style1.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="../static/style1.css" type="text/css" media="all" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="../static/jquery.raty.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="../static/jquery.raty.js"></script>
+
+  <script>
+      $(function () {
+          $.ajaxSetup({
+              data: {csrfmiddlewaretoken: '{{ csrf_token }}'},
+          });
+          $.ajax({
+            url: "localhost:8000/Category",
+            success: function (data) {
+              console.log(data)
+          }
+        });
+      });
+  </script>
+
   </head>
 
 <body>
@@ -25,44 +46,40 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">BookAria</a>
+      <a class="navbar-brand" href="#">BookArea</a>
     </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href=""> Home <span class="sr-only">(current)</span></a></li>
-          <li><a href="{% url "authors" %}">Authors</a></li>
-        <li class="dropdown">
+        <li class="active"><a href="/Home"> Home <span class="sr-only">(current)</span></a></li>
+          <li><a href="{% url 'authors' %}">Authors</a></li>
+
+               <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">FANTASY</a></li>
-            <li><a href="#">HISTORY & BIOGRAPHY</a></li>
-            <li><a href="#">FICTION</a></li>
-              <li><a href="#">Classics</a></li>
-            <li><a href="#">Romance</a></li>
-            <li><a href="#">Horror</a></li>
-              <li><a href="#">Crime</a></li>
-            <li><a href="#">Humor & Comedy</a></li>
-            <li><a href="#">Science</a></li>
-              <li><a href="#">Philosophy</a></li>
+          <ul class="dropdown-menu" id="cats">
           </ul>
         </li>
+
       </ul>
-      <form class="navbar-form navbar-left" >
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
+
+     <ul class="navbar-form navbar-left" >
+            <select class='form-control' name="search_by" id="search_by">
+              <option value="book">Book</option>
+              <option value="author">Author</option>
+            </select>
+            <div class="input-group">
+              <input type="text" class="form-control" id="query" placeholder="Search for..">
+              <span class="input-group-btn">
+                <a class="btn btn-default" id="search" >Search!</a>
+              </span>
+            </div><!-- /input-group -->
+          </ul>
 
         <ul class="nav navbar-nav navbar-right">
+        <a href="#" class="btn btn-primary btn-lg active " role="button" aria-disabled="true">Logout</a> |
         {% if user.is_authenticated %}
         <a href="{% url 'signOut' %}" class="btn btn-primary btn-lg active " role="button" aria-disabled="true">LogOut</a>
-        {% else %}
-        <a href="{% url 'signIn' %}" class="btn btn-primary btn-lg active " role="button" aria-disabled="true">Login</a> |
         {% endif %}
-
-       <a href="{% url 'signUp' %}" class="btn btn-secondary btn-lg active role="button" aria-disabled="true">SignUp</a>
       </ul>
 
     </div><!-- /.navbar-collapse -->
@@ -74,28 +91,81 @@
 {% block block_content %}
 {% endblock block_content %}
 </div>
+
 <script type="text/javascript">
   $('.raty').raty({
   click: function(score, evt) {
-    $.ajax({
-      type:"POST",
-      beforeSend: function(xhr, settings) {
-        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-            xhr.setRequestHeader("X-CSRFToken", csrftoken);
-        }
-    },
-      url:"/BookRate/",
-      data: {'rate': score,'BookdID':7 },
-      success: function(){
-         console.log(updated)
-      }
-    });
+     window.location.href='/BookRate/7/'+score;
   }
 });
 
 $(".score").each(function(value){
   $('.raty_read').raty({ readOnly: true, score: $(this).val() });
 });
+</script>
+
+<script type="text/javascript">
+   //search function
+   function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+
+var csrftoken = getCookie('csrftoken');
+console.log(csrftoken)
+      function search(){
+        search_by = document.getElementById('search_by').value.trim()
+        query = document.getElementById('query').value.trim()
+        if(query != ""){
+          window.location = window.location.protocol + "//" + window.location.host + "/bookstore/search/"+ search_by +"/" + query;
+        }
+      }
+      $('#search').click(search)
+      $('#query').keypress(function(e){
+        if(e.which == 13){
+          search()
+        }
+      })
+
+      $.ajax({
+        url: 'http://localhost:8000/bookstore/category/',
+        type: 'GET',
+        dataType: 'json',
+        beforeSend: function(xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        },
+      })
+      .done(function(response) {
+        var cats=$("#cats")
+        var homeLink="http://localhost:8000/bookstore/category/"
+        response.forEach( function(element, index) {
+          item="<li><a href='"+homeLink+element.id+"'>"+element.name+"</a></li>"
+          cats.append(item)
+        });
+      })
+      .fail(function(response) {
+        console.log("error");
+      });
+      
+
 
 </script>
 </body>

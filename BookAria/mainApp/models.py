@@ -37,6 +37,12 @@ class Catergory (models.Model):
     def __str__(self):
         return self.cat_name
 
+    def as_dict(self):
+        return {
+            "id":self.id ,
+            "name": self.cat_name
+        }
+
 
 class Favourites(models.Model):
     user_id = models.ForeignKey(User)

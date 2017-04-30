@@ -1,0 +1,29 @@
+{% extends 'header.html' %}
+{% block block_content %}
+<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<div class="panel panel-default  panel--styled">
+					<div class="panel-body">
+						<div class="col-md-12 panelTop">
+							<div class="col-md-4">
+								<img class="img-responsive" src="/media/{{ Author.author_image }}" alt=""/>
+							</div>
+							<div class="col-md-8">
+								<h2>{{ Author.name }}</h2>
+								<h4 style="display:inline">BirthDate : </h4><h7>{{ Author.date_of_birth }}</h7>
+								<p>{{ Author.info }}</p>
+							</div>
+						</div>
+
+						<div class="col-md-12 panelBottom">
+							<div class="col-md-4 text-center">
+								 <button type="button" class="btn btn-primary">Follow</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+{% endblock block_content %}

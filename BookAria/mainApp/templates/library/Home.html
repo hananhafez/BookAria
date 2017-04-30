@@ -13,8 +13,8 @@
           <div class="info">
             <span class="holder">
               <img src="/media/{{ book.book_id.book_image }}" class="book_cover" alt="" />
-                <a href="/Book/{{ book.book_id.id }}"><span class="book-name">{{ book.book_id.title }}</span></a>
-                <a href="/Author/{{ book.book_id.author_id.id }}"><span class="author">{{ book.book_id.author_id }}</span></a>
+                <a href="/DisplayBook/{{ book.book_id.id }}"><span class="book-name">{{ book.book_id.title }}</span></a>
+                <a href="/DisplayAuthor/{{ book.book_id.author_id.id }}"><span class="author">by {{ book.book_id.author_id }}</span></a><br>
               <span class="publisher">published at: {{ book.book_id.published_at }}</span>
             </span>
           </div>
@@ -40,14 +40,14 @@
     <h3>Wish To Read</h3>
     <ul>
       {% for book in user_books %}
-      {% if book.state.id == 4  %}
+      {% if book.state.id == 2  %}
       <li>
         <div class="product">
           <div class="info">
             <span class="holder">
               <img src="/media/{{ book.book_id.book_image }}" class="book_cover" alt="" />
-                <a href="/Book/{{ book.book_id.id }}"><span class="book-name">{{ book.book_id.title }}</span></a>
-                <a href="/Author/{{ book.book_id.author_id.id }}"><span class="author">{{ book.book_id.author_id }}</span></a>
+                <a href="/DisplayBook/{{ book.book_id.id }}"><span class="book-name">{{ book.book_id.title }}</span></a>
+                <a href="/DisplayAuthor/{{ book.book_id.author_id.id }}"><span class="author">by {{ book.book_id.author_id }}</span></a><br>
               <span class="publisher">published at: {{ book.book_id.published_at }}</span>
             </span>
           </div>
@@ -64,14 +64,14 @@
     <h3>Read Books</h3>
     <ul>
       {% for book in user_books %}
-      {% if book.state.id == 2  %}
+      {% if book.state.id == 4  %}
       <li>
         <div class="product">
           <div class="info">
             <span class="holder">
               <img src="/media/{{ book.book_id.book_image }}" class="book_cover" alt="" />
-                <a href="/Book/{{ book.book_id.id }}"><span class="book-name">{{ book.book_id.title }}</span></a>
-                <a href="/Author/{{ book.book_id.author_id.id }}"><span class="author">{{ book.book_id.author_id }}</span></a>
+                <a href="/DisplayBook/{{ book.book_id.id }}"><span class="book-name">{{ book.book_id.title }}</span></a>
+                <a href="/DisplayAuthor/{{ book.book_id.author_id.id }}"><span class="author">by {{ book.book_id.author_id }}</span></a><br>
               <span class="publisher">published at: {{ book.book_id.published_at }}</span>
             </span>
           </div>

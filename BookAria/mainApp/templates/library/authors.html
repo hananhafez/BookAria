@@ -2,27 +2,35 @@
 {% block head_title %}Authors{% endblock head_title %}
 
 {% block block_content %}
-    <div class="col-sm-10">
-            <div class="row">
-            {% if empty %}
-                <div><h1>No Authors</h1></div>
-            {% else %}
-                <div><h1>Authors</h1></div>
-                {% for obj in authors %}
-                    <div class="col-sm-12">
-                        <div class="thumbnail">
-                            <div class="caption">
-                                <h3>{{ obj.name }}</h3>
-                                <small>
-                                    {{ obj.date_of_birth }},
-                                    {{ obj.info }}<br>
-                                    {{ obj.author_image }}
-                                </small><br>
+     {% for obj in authors %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-sm-6">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                         <img src="/media/{{ obj.author_image }}" height="250px" , width="355px"/>
+                        <div class="content">
+                            <div class="main">
+                                <h3 class="name"><a href="/DisplayAuthor/{{ obj.id  }}" >{{ obj.name  }}</a><br>
+                                <button type="button" class="btn btn-primary">Follow</button>
+                                </h3>
+                                <p class="profession">{{ obj.date_of_birth }}</p>
+                                <p class="text-center">{{ obj.info|truncatewords:10 }}</p>
+                            </div>
+                            <div class="footer">
+                                <div class="rating">
+                                    <i class="fa fa-mail-forward"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                {% endfor %}
-            {% endif %}
-        </div>
-    </div>
+                    </div> <!-- end front panel -->
+
+                </div> <!-- end card -->
+            </div> <!-- end card-container -->
+        </div> <!-- end col-sm-3 -->
+        </div> <!-- end col-sm-10 -->
+    </div> <!-- end row -->
+</div>
+{% endfor %}
 {% endblock block_content %}

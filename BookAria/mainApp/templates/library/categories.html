@@ -1,3 +1,24 @@
 {% extends 'library/../header.html' %}
 
-<p>categories page</p>
+{% block block_content %}
+<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<div class="panel panel-default  panel--styled">
+					<div class="panel-body">
+						<div class="col-md-12 panelTop">
+							<div class="col-md-4">
+							</div>
+							<div class="col-md-8">
+                                 {% for cat in category %}
+								<p>{{ cat.name }}</p>
+                               {% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+{% endblock block_content %}
+

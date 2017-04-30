@@ -1,0 +1,43 @@
+{% extends 'header.html' %}
+{% block block_content %}
+<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<div class="panel panel-default  panel--styled">
+					<div class="panel-body">
+						<div class="col-md-12 panelTop">
+							<div class="col-md-4">
+								<img class="img-responsive" src="/media/{{ Book.book_image }}" alt=""/>
+							</div>
+							<div class="col-md-8">
+								<h2>{{ Book.title }}</h2>
+								<a href="/DisplayAuthor/{{ Book.author_id.id }}"><h3> by {{ Book.author_id }}</h3></a>
+								<h4 style="display:inline">Published At : </h4><h7>{{ Book.published_at }}</h7>
+								<br>
+								<h4 style="display:inline">ISBN : </h4><h7>{{ Book.ISBN }}</h7>
+								<div class="raty_read" style="cursor: pointer;">
+			            <input name="score" class="score" type="hidden" value="{{ Book.acc_rate }}"/>
+								</div>
+								<p>{{ Book.summary }}</p>
+			         </div>
+							</div>
+						</div>
+
+						<div class="col-md-12 panelBottom">
+							<div class="col-md-4 text-center">
+								<div class="form-group">
+										{% csrf_token %}
+  								<select name="bookstate" class="form-control" onchange='location = "/updateState/{{Book.id}}/"+this.value;'>
+											{% for state in states %}
+    										<option value="{{ state.id }}" {% if Bookstate == state %} selected{% endif %}>{{ state }}</option>
+											{% endfor %}
+  							 </select>
+							 </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+{% endblock block_content %}
