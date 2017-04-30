@@ -72,9 +72,10 @@ def signIn(request):
 			request.session['user']=user
 			return redirect('authors')
 		else:
-			return HttpResponse(user)
-		# 	# errors.append('Wrong Email or Password')
-		# 	# return render(request, 'library/user/signin.html', {"errors":errors,"data":data})
+			# return HttpResponse(user)
+			# errors.append('Wrong Email or Password')
+			# return render(request, 'library/user/signin.html', {"errors":errors,"data":data})
+			return HttpResponseRedirect(reverse('signIn', kwargs={'errors': errors}))
 	else:
 		return render(request, 'library/user/signin.html')
 		# return HttpResponse("render the signIn")

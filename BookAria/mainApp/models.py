@@ -14,6 +14,13 @@ class Authors(models.Model):
 
     def __str__(self):
         return self.name
+    def as_dict(self):
+        return {
+            "id":self.id ,
+            "date_of_birth": self.date_of_birth,
+            "info": self.info,
+            "author_image": self.author_image
+        }
 
 
 class Books(models.Model):
@@ -37,6 +44,12 @@ class Catergory (models.Model):
     def __str__(self):
         return self.cat_name
 
+    def as_dict(self):
+        return {
+            "id":self.id ,
+            "name": self.cat_name
+        }
+
 
 class Favourites(models.Model):
     user_id = models.ForeignKey(User)
@@ -48,12 +61,19 @@ class User_Book(models.Model):
     state = models.ForeignKey('Book_State')
     rate = models.IntegerField()
 
+
+
 class Book_State(models.Model):
     state_value = models.CharField(max_length=100)
 
     def __str__(self):
         return self.state_value
 
+    def as_dict(self):
+        return {
+            "id":self.id ,
+            "state_value": self.state_value
+        }    
 
 class Followed_Authors(models.Model):
     user_id = models.ForeignKey(User)

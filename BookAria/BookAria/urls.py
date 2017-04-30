@@ -18,7 +18,7 @@ from django.conf.urls import url
 from django.contrib import admin
 
 
-from  mainApp.views import Authentication
+# from  mainApp.views import Authentication
 
 from  mainApp.views import Home
 from  mainApp.views import Display
@@ -28,7 +28,7 @@ from  BookAria import settings
 from django.conf.urls import include
 
 urlpatterns = [
-    # url(r'^$', user.signIn ),
+    url(r'^$', users.signIn ),
     url(r'^admin/', admin.site.urls),
     url(r'^bookstore/', include('mainApp.urls')),
 
@@ -37,7 +37,7 @@ urlpatterns = [
 
 
     # url(r'^Home/', Books.userBooks.as_view()),
-    url(r'^signin$', users.signIn , name='signIn'),
+    url(r'^signin/$', users.signIn , name='signIn'),
     url(r'^user/$', users.signUp , name='signUp'),
     url(r'^signout/$', users.signOut , name='signOut'),
 
