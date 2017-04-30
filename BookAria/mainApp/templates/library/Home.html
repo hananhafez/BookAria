@@ -19,17 +19,19 @@
             </span>
           </div>
           {% if book.rate == 0 %}
-          <div class="raty" style="cursor: pointer;" Bookid="{{ book.book_id.id }}">
-            <input name="Bookid" type="hidden" value="{{ book.book_id.id }}"/></div>
+          <div class="raty" style="cursor: pointer;" id="{{ book.book_id.id }}"></div>
          </div>
          {% else %}
          <div class="raty_read" style="cursor: pointer;">
-           <input name="score" class="score" type="hidden" value="{{ book.rate }}"/></div>
+           <input name="score" type="hidden" value="{{ book.rate }}"/></div>
         </div>
         {% endif %}
       </li>
       {% endif %}
       {% endfor %}
+      {% if counter == 0 %}
+      <li><h4>No Books</h4></li>
+      {% endif %}
     </ul>
   <!-- currently reading books  End -->
   </div>
