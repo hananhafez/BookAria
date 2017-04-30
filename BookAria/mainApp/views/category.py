@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import render
 from mainApp.models import Authors
+from mainApp.models import Favourites
 from mainApp.models import Books
 from mainApp.models import Catergory
 from django.core import serializers
@@ -29,3 +30,9 @@ def category_books(request, cat_id):
 
     cat_books = Books.objects.filter(category_id=cat_id)
     return render(request, 'library/categories.html', {"books":cat_books})
+
+@login_required(login_url='/signin/')
+def AddToFavorite(request, cat_id):
+    AddFavorite = Favourites.objects.create(user_id=request.user.id)
+    AddFavorite.save();
+    return redirect(request.META['HTTP_REFERER'])
