@@ -72,7 +72,7 @@ class Book_State(models.Model):
         return {
             "id":self.id ,
             "state_value": self.state_value
-        }    
+        }
 
 class Followed_Authors(models.Model):
     user_id = models.ForeignKey(User)

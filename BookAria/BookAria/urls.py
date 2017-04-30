@@ -16,13 +16,12 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib.staticfiles.urls import static
 from django.conf.urls import url
 from django.contrib import admin
-
-
-# from  mainApp.views import Authentication
-
 from django.contrib.auth import views as auth_views
 from  mainApp.views import Home
 from  mainApp.views import Display
+from  mainApp.views.Authors import authors
+from  mainApp.views.Authors import followAuthor
+from  mainApp.views.Authors import unFollowAuthor
 from  mainApp.views import Authors
 from  mainApp.views import users
 from  BookAria import settings
@@ -33,8 +32,6 @@ urlpatterns = [
     url(r'^$', users.signIn),
     url(r'^admin/', admin.site.urls),
     url(r'^bookstore/', include('mainApp.urls')),
-    # url(r'^Home/', Books.userBooks.as_view()),
-    # url(r'^Home/', Books.userBooks.as_view()),
     url(r'^signin/$', users.signIn , name='signIn'),
     url(r'^user/$', users.signUp , name='signUp'),
     url(r'^signout/$', users.signOut , name='signOut'),
@@ -45,6 +42,10 @@ urlpatterns = [
     url(r'^updateState/(?P<book_id>[0-9]+)/(?P<state_id>[0-9]+)', Display.updateState),
     url(r'^AddFavorite/(?P<cat_id>[0-9]+)$', category.AddToFavorite),
     url(r'^RemoveFavorite/(?P<cat_id>[0-9]+)$', category.removeFromFavorite),
+    url(r'^category/(?P<cat_id>[0-9]+)$', category.category_books , name='category_books'),
+    url(r'^authors/$', authors,name='authors'),
+    url(r'^followAuthor/(?P<auhtor_id>[0-9]+)$', followAuthor , name='followAuthor'),
+    url(r'^unfollowAuthor/(?P<auhtor_id>[0-9]+)$', unFollowAuthor , name='unFollowAuthor'),
 ]
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

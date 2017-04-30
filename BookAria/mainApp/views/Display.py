@@ -7,6 +7,7 @@ from mainApp.models import Books
 from mainApp.models import Book_State
 from mainApp.models import User_Book
 from mainApp.models import Authors
+from mainApp.models import Followed_Authors
 from django.contrib.auth.models import User
 # Create your views here.
 
@@ -31,4 +32,9 @@ def updateState(request,book_id,state_id):
 @login_required(login_url='/signin/')
 def DisplayAuthor(request,author_id):
     author = Authors.objects.get(id=author_id)
-    return render(request,'../templates/library/DisplayAuthor.html',context={"Author":author})
+    isFollowed = Followed_Authors.objects.filter(user_id=request.user.id,author_id=author_id)
+    if len(isFollowed) == 0:
+        isFollowed = False
+    else:
+        isFollowed = True
+    return render(request,'../templates/library/DisplayAuthor.html',context={"Author":author,"isFollowed":isFollowed})

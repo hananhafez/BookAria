@@ -2,9 +2,9 @@
 {% block block_content %}
 <div id="content">
   {% if isfavorite == False %}
-  <a href="/AddFavorite/{{category.id}}" style="float: right ; margin-right: 50px" class="btn btn-primary btn-lg active " role="button" aria-disabled="true">Add To Favorite</a>
+  <a href="/AddFavorite/{{category.id}}" style="float: right ; margin-right: 50px;" class="btn btn-primary btn-lg active " role="button" aria-disabled="true">Add To Favorite</a>
   {% else %}
-  <a href="/RemoveFavorite/{{category.id}}" style="float: right ; margin-right: 50px" class="btn btn-primary btn-lg active " role="button" aria-disabled="true">Remov From Favorite</a>
+  <a href="/RemoveFavorite/{{category.id}}" style="float: right ; margin-right: 50px" class="btn btn-primary btn-lg active " role="button" aria-disabled="true">Remove From Favorite</a>
   {% endif %}
      <div class="cl">&nbsp;</div>
   <div class="products">

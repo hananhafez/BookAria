@@ -18,7 +18,11 @@
 
 						<div class="col-md-12 panelBottom">
 							<div class="col-md-4 text-center">
-								 <button type="button" class="btn btn-primary">Follow</button>
+								{% if isFollowed == False %}
+								<a href="/followAuthor/{{Author.id}}"  class="btn btn-primary btn-lg active " role="button" aria-disabled="true">Follow</a>
+								{% else %}
+								<a href="/unfollowAuthor/{{Author.id}}"  class="btn btn-primary btn-lg active " role="button" aria-disabled="true">Unfollow</a>
+								{% endif %}
 							</div>
 						</div>
 					</div>

@@ -131,7 +131,7 @@ console.log(csrftoken)
       })
       .done(function(response) {
         var cats=$("#cats")
-        var homeLink="http://localhost:8000/bookstore/category/"
+        var homeLink="http://localhost:8000/category/"
         response.forEach( function(element, index) {
           item="<li><a href='"+homeLink+element.id+"'>"+element.name+"</a></li>"
           cats.append(item)
