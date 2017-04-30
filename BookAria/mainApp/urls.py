@@ -7,6 +7,7 @@ from  mainApp.views import users
 from  mainApp.views.Home import *
 from  mainApp.views.Authors import *
 from  mainApp.views.category import *
+from  mainApp.views.search import *
 
 urlpatterns =[
 
@@ -15,5 +16,7 @@ urlpatterns =[
     url(r'^category/(?P<cat_id>[0-9]+)', category , name='category'),
     url(r'^Category/', category , name='category'),
     url(r'^user/$', users.signUp , name='signUp'),
+    url(r'^search/book/(?P<query>[a-zA-Z0-9]+)$', book_search, name="book_search"),
+    url(r'^search/author/(?P<query>[a-zA-Z0-9]+)$', author_search, name="author_search"),
 
     ]
