@@ -26,18 +26,15 @@ from  mainApp.views import Display
 from  mainApp.views import Authors
 from  mainApp.views import users
 from  BookAria import settings
+from  mainApp.views import category
 from django.conf.urls import include
 
 urlpatterns = [
     url(r'^$', users.signIn),
     url(r'^admin/', admin.site.urls),
     url(r'^bookstore/', include('mainApp.urls')),
-
-
     # url(r'^Home/', Books.userBooks.as_view()),
-
     # url(r'^Home/', Books.userBooks.as_view()),
-
     url(r'^signin/$', users.signIn , name='signIn'),
     url(r'^user/$', users.signUp , name='signUp'),
     url(r'^signout/$', users.signOut , name='signOut'),
@@ -46,6 +43,8 @@ urlpatterns = [
     url(r'^DisplayBook/(?P<book_id>[0-9]+)', Display.DisplayBook),
     url(r'^DisplayAuthor/(?P<author_id>[0-9]+)', Display.DisplayAuthor),
     url(r'^updateState/(?P<book_id>[0-9]+)/(?P<state_id>[0-9]+)', Display.updateState),
+    url(r'^AddFavorite/(?P<cat_id>[0-9]+)$', category.AddToFavorite),
+    url(r'^RemoveFavorite/(?P<cat_id>[0-9]+)$', category.removeFromFavorite),
 ]
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
