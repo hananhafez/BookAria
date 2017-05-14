@@ -76,9 +76,9 @@ def signIn(request):
 				return redirect('/Home/')
 			else:
 				# return HttpResponse(user)
-				# errors.append('Wrong Email or Password')
-				# return render(request, 'library/user/signin.html', {"errors":errors,"data":data})
-				return HttpResponseRedirect(reverse('signIn', kwargs={'errors': errors}))
+				 errors.append('Wrong Email or Password')
+				 return render(request, 'library/user/signin.html', {"errors":errors,"data":data})
+				 return HttpResponseRedirect(reverse('signIn', kwargs={'errors': errors}))
 		else:
 			return render(request, 'library/user/signin.html')
 	return redirect('/Home/')

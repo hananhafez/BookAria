@@ -19,10 +19,8 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from  mainApp.views import Home
 from  mainApp.views import Display
-from  mainApp.views.Authors import authors
-from  mainApp.views.Authors import followAuthor
-from  mainApp.views.Authors import unFollowAuthor
-from  mainApp.views import Authors
+from  mainApp.views.Authors import *
+from  mainApp.views.search import *
 from  mainApp.views import users
 from  BookAria import settings
 from  mainApp.views import category
@@ -46,6 +44,8 @@ urlpatterns = [
     url(r'^authors/$', authors,name='authors'),
     url(r'^followAuthor/(?P<auhtor_id>[0-9]+)$', followAuthor , name='followAuthor'),
     url(r'^unfollowAuthor/(?P<auhtor_id>[0-9]+)$', unFollowAuthor , name='unFollowAuthor'),
+    url(r'^search/book/(.+)$', book_search, name="book_search"),
+    url(r'^search/author/(.+)$', author_search, name="author_search")
 ]
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

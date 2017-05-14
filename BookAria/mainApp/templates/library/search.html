@@ -1,10 +1,6 @@
 {% extends 'header.html' %}
-{% block head_title %}Authors{% endblock head_title %}
-{%block title %}Books{% endblock %}
-
 {%block block_content %}
       {% if search_type == 'book' %}
-
         {% for Book in books %}
             <div class="container">
 		<div class="row">
@@ -32,11 +28,10 @@
 			</div>
 		</div>
     </div>
-            <li>
-
+      <li>
       </li>
         {% empty %}
-          <h1>Sorry, no books matched your search criteria! </h1>
+          <h2><span class="label label-danger">Sorry, No Books matched your search criteria!</h2>
         {% endfor %}
       {% elif search_type == 'author' %}
         {% for Author in authors %}
@@ -55,7 +50,6 @@
 								<p>{{ Author.info }}</p>
 							</div>
 						</div>
-
 						<div class="col-md-12 panelBottom">
 							<div class="col-md-4 text-center">
 								 <button type="button" class="btn btn-primary">Follow</button>
@@ -66,11 +60,8 @@
 			</div>
 		</div>
     </div>
-
-
         {% empty %}
-          <h1>Sorry, No authors matched your search criteria! </h1>
+          <h4><span class="label label-danger">Sorry, No authors matched your search criteria!</h4>
         {% endfor %}
       {% endif %}
-
 {% endblock block_content %}

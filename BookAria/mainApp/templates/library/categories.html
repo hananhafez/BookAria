@@ -1,6 +1,6 @@
 {% extends 'header.html' %}
 {% block block_content %}
-<div id="content">
+<div id="categoriescontent">
   {% if isfavorite == False %}
   <a href="/AddFavorite/{{category.id}}" style="float: right ; margin-right: 50px;" class="btn btn-primary btn-lg active " role="button" aria-disabled="true">Add To Favorite</a>
   {% else %}

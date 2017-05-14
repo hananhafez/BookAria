@@ -2,15 +2,15 @@
   <head>
     <meta charset="utf-8">
     <title>{% block title %}{% endblock %}</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="../../static/style.css">
-  <script src="../../static/main.js"></script>
-  <link rel="stylesheet" href="../../static/style.css">
-  <link rel="stylesheet" href="../static/style1.css" type="text/css" media="all" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../static/jquery.raty.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="../static/jquery.raty.js"></script>
+  <script src="/static/jquery.min.js"></script>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/main.js"></script>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/style1.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="/static/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/jquery.raty.css">
+  <script src="/static/bootstrap.min.js"></script>
+  <script src="/static/jquery.raty.js"></script>
   </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -109,7 +109,7 @@ console.log(csrftoken)
         search_by = document.getElementById('search_by').value.trim()
         query = document.getElementById('query').value.trim()
         if(query != ""){
-          window.location = window.location.protocol + "//" + window.location.host + "/bookstore/search/"+ search_by +"/" + query;
+          window.location = window.location.protocol + "//" + window.location.host + "/search/"+ search_by +"/" + query;
         }
       }
       $('#search').click(search)

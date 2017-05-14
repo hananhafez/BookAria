@@ -1,12 +1,35 @@
 {% extends 'header.html' %}
 {% block block_content %}
+<div id="main" class="shell">
+		<!-- Sidebar -->
+		<div id="sidebar">
+			<ul class="categories">
+				<li>
+					<h4>Favorite Categories</h4>
+					<ul>
+						{% for catname in result.Favourites %}
+								<li><a href="/category/{{catname.category_id.id}}">{{ catname.category_id }}</a></li>
+					 {% endfor %}
+					</ul>
+				</li>
+				<li>
+					<h4>Followed Authors</h4>
+					<ul>
+						{% for follower in result.Followed %}
+								<li><a href="/DisplayAuthor/{{ follower.author_id.id }}">{{ follower.author_id }}</a></li>
+						{% endfor %}
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<!-- End Sidebar -->
 <!-- Content -->
 <div id="content">
   <!-- currently reading books -->
   <div class="products">
     <h3>Currently Reading Books</h3>
     <ul>
-      {% for book in user_books %}
+      {% for book in result.user_books %}
       {% if book.state.id == 3  %}
       <li>
         <div class="product">
@@ -41,7 +64,7 @@
   <div class="products">
     <h3>Wish To Read</h3>
     <ul>
-      {% for book in user_books %}
+      {% for book in result.user_books %}
       {% if book.state.id == 2  %}
       <li>
         <div class="product">
@@ -65,7 +88,7 @@
   <div class="products">
     <h3>Read Books</h3>
     <ul>
-      {% for book in user_books %}
+      {% for book in result.user_books %}
       {% if book.state.id == 4  %}
       <li>
         <div class="product">
